@@ -33,9 +33,33 @@
 
 <h3>Przykładowy kod z zajęć (C)</h3>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<pre><code>#include <stdio.h>
+#include <math.h>
+
+int symbol (int n, int k) {
+
+   if (k == 0 || n == k) return 1;
+   if (k>0 && n>0 && n>k) return symbol(n-1,k) + symbol(n-1, k-1);
+
+}
+
+double prawd (double n, double k, double p) {
+
+        return pow(p,k)*pow(1-p,n-k)*symbol(n,k);
+}
+
+int main() {
+
+    double n,k,p, wynik;
+
+    printf("\n Podaj prawdopodobienstwo wyrzucenia orla:"); scanf("%lf",&p);
+    printf("\n Podaj ilosc rzutow:"); scanf("%lf",&n);
+    printf("\n Podaj ilosc sukcesow:"); scanf("%lf",&k);
+
+    wynik=prawd(n,k,p);
+    printf("\n\n Wynik to: %lf",wynik);
+
+} 
 </code></pre>
 
 <a href="https://github.com/blog/821" class="user-mention">@mention</a>
